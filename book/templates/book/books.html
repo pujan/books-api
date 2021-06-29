@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Książki</title>
+	</head>
+	<body>
+		<h1>Książki</h1>
+		<ul>
+			{% for book in object_list %}
+			<li><a href="{{ book.get_absolute_url }}"	>{{ book.title }}</a></li>
+			{% empty %}
+			<li class="message">Brak książek</li>
+			{% endfor %}
+		</ul>
+	</body>
+</html>

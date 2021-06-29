@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Książka {{ object.title }}</title>
+	</head>
+	<body>
+		<div class="detail">
+			<div class="title">
+				<h1>{{ object.title }}</h1>
+			</div>
+			<div class="authors">
+				<span>Autorzy:</span>
+				<ul>
+				{% for author in object.authors.all %}
+				<li><a href="{% url 'book:author-detail' author.slug %}">
+					{{ author.firstname }}
+					{{ author.lastname }}</a>
+				</li>
+				{% endfor %}
+				</ul>
+			</div>
+			<div class="publisher">
+				Wydawca: <a href="{{ book.publisher.get_absolute_url }}">{{ book.publisher.name }}</a>
+			</div>
+			<div>
+				<div>ilość stron: {{ object.pages }}</div>
+				<div>ISBN: {{ object.isbn }}</div>
+			</div>
+			<div class="rating">
+				ocena: {{ object.rating }}
+			</div>
+		</div>
+	</body>
+</html>
+

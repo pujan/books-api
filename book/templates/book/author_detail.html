@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Autor {{ object.firstname }} {{ object.lastname }}</title>
+	</head>
+	<body>
+		<div class="detail">
+			<div class="name">
+				{{ object.firstname }}
+				{{ object.lastname }}
+			</div>
+			<div class="bio">
+				Biografia:
+				{% if  object.biography %}
+				<p>{{ object.biography }}</p>
+				{% endif %}
+			</div>
+		</div>
+	</body>
+</html>
+

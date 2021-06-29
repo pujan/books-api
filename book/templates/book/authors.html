@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Autorzy</title>
+	</head>
+	<body>
+		<h1>Autorzy</h1>
+		<ul>
+			{% for author in object_list %}
+			<li>{{ author.firstname }} {{ author.lastname }}</li>
+			{% empty %}
+			<li class="message">Brak autorów</li>
+			{% endfor %}
+		</ul>
+	</body>
+</html>

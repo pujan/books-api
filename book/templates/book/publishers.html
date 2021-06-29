@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Wydawcy</title>
+	</head>
+	<body>
+		<h1>Wydawcy</h1>
+		<ul>
+			{% for publisher in object_list %}
+			<li>{{ publisher.name }}</li>
+			{% empty %}
+			<li class="message">Brak wydawców</li>
+			{% endfor %}
+		</ul>
+	</body>
+</html>

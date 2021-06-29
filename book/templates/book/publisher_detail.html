@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Wydawca {{ object.name }}</title>
+	</head>
+	<body>
+		<div class="detail">
+			<div class="name">
+				{{ object.name }}
+			</div>
+			<div class="url">
+				<a href="#">{{ object.url }}</a>
+			</div>
+			<div class="bio">
+				{% if object.description %}
+				<p>{{ object.description }}</p>
+				{% endif %}
+			</div>
+		</div>
+	</body>
+</html>
+

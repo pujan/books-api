@@ -101,14 +101,48 @@ class APITests(APITestCase):
                                      'uri': '/authors/john-smith/'}],
                              'uri': '/books/programming-in-python/'})
 
-        def test_get_all_authors(self):
-            pass
+    def test_get_all_authors(self):
+        endpoint = '/authors/'
+        status_code, content = self.fetch(endpoint)
+        self.assertEqual(status_code, status.HTTP_200_OK)
+        self.assertNotEqual(content, [])
+        self.assertEqual(content, [
+            {'id': 1,
+             'firstname': 'John',
+             'lastname': 'Smith',
+             'biography': "John Smith's biography...",
+             'uri': '/authors/john-smith/'}])
 
-        def test_get_one_author(self):
-            pass
+    def test_get_one_author(self):
+        endpoint = '/authors/1/'
+        status_code, content = self.fetch(endpoint)
+        self.assertEqual(status_code, status.HTTP_200_OK)
+        self.assertNotEqual(content, {})
+        self.assertEqual(content, {
+            'id': 1,
+            'firstname': 'John',
+            'lastname': 'Smith',
+            'biography': "John Smith's biography...",
+            'uri': '/authors/john-smith/'})
 
-        def test_get_all_publishers(self):
-            pass
+    def test_get_all_publishers(self):
+        endpoint = '/publishers/'
+        status_code, content = self.fetch(endpoint)
+        self.assertEqual(status_code, status.HTTP_200_OK)
+        self.assertNotEqual(content, [])
+        self.assertEqual(content, [
+            {'id': 1,
+             'name': 'Books of World',
+             'url': 'https://www.bow.com',
+             'description': 'Description publisher "Books of World"'}])
 
-        def test_get_one_publisher(self):
-            pass
+    def test_get_one_publisher(self):
+        endpoint = '/publishers/1/'
+        status_code, content = self.fetch(endpoint)
+        self.assertEqual(status_code, status.HTTP_200_OK)
+        self.assertNotEqual(content, {})
+        self.assertEqual(content, {
+            'id': 1,
+            'name': 'Books of World',
+            'url': 'https://www.bow.com',
+            'description': 'Description publisher "Books of World"'})

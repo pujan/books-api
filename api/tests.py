@@ -43,7 +43,7 @@ class APITests(APITestCase):
                 "publisher": {
                     "id": 1,
                     "name": "Books of World",
-                    "url" :"https://www.bow.com",
+                    "url": "https://www.bow.com",
                     "description": 'Description publisher "Books of World"'},
                 "authors": [
                     {"id": 1,

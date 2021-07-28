@@ -144,8 +144,8 @@ REST_FRAMEWORK = {
     ]
 }
 
-#LOGIN_URL = 'rest_framework:login'
-#LOGOUT_URL = 'rest_framework:logout'
+# LOGIN_URL = 'rest_framework:login'
+# LOGOUT_URL = 'rest_framework:logout'
 
 SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {

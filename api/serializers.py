@@ -1,5 +1,5 @@
+from book.models import Author, Book, Publisher
 from rest_framework import serializers
-from book.models import Author, Publisher, Book
 
 
 # Serializers define the API representation.
@@ -12,6 +12,7 @@ class AuthorSerializer(serializers.HyperlinkedModelSerializer):
 
     def get_uri(self, obj):
         return f'/authors/{obj.slug}/'
+
 
 class PublisherSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

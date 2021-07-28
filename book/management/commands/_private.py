@@ -119,7 +119,7 @@ PUBLISHERS = (
          'url': 'wydawnictwoswiatksiazki.pl',
          'description': 'Wydawnictwo'},
         {'name': 'Martel',
-         'url': 'wydawnictwomartel.pl', 
+         'url': 'wydawnictwomartel.pl',
          'description': ''},
         {'name': 'Wydawnictwo Centrum',
          'url': 'www.wydawnictwocentrum.pl',
@@ -171,4 +171,3 @@ def rand_rating():
 
 def rand_pages():
     return random.randint(100, 500)
-

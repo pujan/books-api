@@ -4,11 +4,13 @@ import time
 from django.core.management.base import BaseCommand, CommandError
 from book.models import Author, Book, Publisher
 
-from ._private import rand_authors, authors, publishers, rand_isbn, rand_number_authors, rand_pages, rand_rating, titles, rand_publisher_id
+from ._private import (rand_authors, authors, publishers, rand_isbn, rand_number_authors, rand_pages, rand_rating,
+                       titles, rand_publisher_id)
 
 
 class Command(BaseCommand):
     help = 'Add fixtures to database'
+
     def delete(self):
         Book.objects.all().delete()
         Author.objects.all().delete()
@@ -57,10 +59,9 @@ class Command(BaseCommand):
             publisher = Publisher.objects.get(pk=rand_publisher_id(publishers_ids))
             book.authors.set(authors_.filter(
                 pk__in=[random.randint(numa_min, numa_max)
-                    for _ in range(rand_number_authors())]))
+                        for _ in range(rand_number_authors())]))
             book.publisher = publisher
             book.save()
 
         self.stdout.write(f'Dodano: {num_books} książek, {num_authors} autorów i {num_publishers} wydawców')
         self.stdout.write(self.style.SUCCESS('OK'))
-

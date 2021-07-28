@@ -1,6 +1,7 @@
 from django.urls import path
 
-from book.views import AuthorListView, BookListView, PublisherListView, AuthorDetailView, BookDetailView, PublisherDetailView
+from book.views import (AuthorListView, BookListView, PublisherListView, AuthorDetailView, BookDetailView,
+                        PublisherDetailView)
 
 app_name = 'book'
 urlpatterns = [
@@ -11,5 +12,3 @@ urlpatterns = [
     path('', BookListView.as_view(), name='book-list'),
     path('ksiazka/<slug:slug>/', BookDetailView.as_view(), name='book-detail'),
 ]
-
-

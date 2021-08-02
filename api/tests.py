@@ -49,6 +49,8 @@ class APITests(APITestCase):
                     {"id": 1,
                      "firstname": "John",
                      "lastname": "Smith",
+                     "photo": None,
+                     "number_books": 2,
                      "biography": "John Smith's biography...",
                      "uri": "/authors/john-smith/"}],
                 "uri": "/books/programming-in-python/"},
@@ -68,6 +70,8 @@ class APITests(APITestCase):
                         "id": 1,
                         "firstname": "John",
                         "lastname": "Smith",
+                        "photo": None,
+                        "number_books": 2,
                         "biography": "John Smith's biography...",
                         "uri": "/authors/john-smith/"
                         }
@@ -97,6 +101,8 @@ class APITests(APITestCase):
                                      'id': 1,
                                      'firstname': 'John',
                                      'lastname': 'Smith',
+                                     'number_books': 2,
+                                     'photo': None,
                                      'biography': "John Smith's biography...",
                                      'uri': '/authors/john-smith/'}],
                              'uri': '/books/programming-in-python/'})
@@ -110,6 +116,8 @@ class APITests(APITestCase):
             {'id': 1,
              'firstname': 'John',
              'lastname': 'Smith',
+             'number_books': 2,
+             'photo': None,
              'biography': "John Smith's biography...",
              'uri': '/authors/john-smith/'}])
 
@@ -122,6 +130,8 @@ class APITests(APITestCase):
             'id': 1,
             'firstname': 'John',
             'lastname': 'Smith',
+            'number_books': 2,
+            'photo': None,
             'biography': "John Smith's biography...",
             'uri': '/authors/john-smith/'})
 

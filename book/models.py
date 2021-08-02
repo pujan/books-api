@@ -11,7 +11,7 @@ class Author(models.Model):
     firstname = models.CharField(max_length=50)
     lastname = models.CharField(max_length=50)
     biography = models.TextField(null=True, blank=True)
-    # photo = models.ImageField(upload_to='authors')
+    photo = models.ImageField(upload_to='images/authors', default=None, blank=True, null=True)
     slug = AutoSlugField(populate_from=slug, unique=True, null=True)
 
     class Meta:
@@ -22,6 +22,9 @@ class Author(models.Model):
     def get_absolute_url(self):
         return reverse('book:author-detail', args=[self.slug])
 
+    def number_books(self):
+        return len(self.books.all())
+
     def __str__(self):
         return f'{self.firstname} {self.lastname}'
 
@@ -30,7 +33,7 @@ class Publisher(models.Model):
     name = models.CharField(max_length=50, unique=True)
     url = models.URLField(max_length=50)
     description = models.TextField(null=True, blank=True)
-    # logo = models.ImageField(upload_to='images/books')
+    logo = models.ImageField(upload_to='images/books', default=None, blank=True, null=True)
     slug = AutoSlugField(populate_from='name', unique=True, null=True)
 
     class Meta:
@@ -52,7 +55,7 @@ class Book(models.Model):
     pages = models.IntegerField()
     rating = models.FloatField(default=0.0)
     publisher = models.ForeignKey(Publisher, related_name='book', on_delete=models.CASCADE, null=True)
-    # front = models.ImageField(upload_to='images/books')
+    front = models.ImageField(upload_to='images/books', default=None, blank=True, null=True)
     slug = AutoSlugField(populate_from='title', unique=True, null=True)
 
     class Meta:

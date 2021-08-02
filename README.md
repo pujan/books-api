@@ -83,3 +83,5 @@ mkvirtualenv -r requirements.txt books-api
 ```
 /counters/
 ```
+
+[![GitHub license](https://img.shields.io/github/license/pujan/books-api)](https://github.com/pujan/books-vue/blob/main/LICENSE)

@@ -157,3 +157,5 @@ SWAGGER_SETTINGS = {
     'DOC_EXPANSION': 'list',
     'USE_SESSION_AUTH': False,
 }
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

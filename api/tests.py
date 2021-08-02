@@ -40,10 +40,12 @@ class APITests(APITestCase):
                 "rating": 2.9,
                 "isbn": "5676549012",
                 "pages": 123,
+                "front": None,
                 "publisher": {
                     "id": 1,
                     "name": "Books of World",
                     "url": "https://www.bow.com",
+                    "logo": None,
                     "description": 'Description publisher "Books of World"'},
                 "authors": [
                     {"id": 1,
@@ -60,9 +62,11 @@ class APITests(APITestCase):
                 "rating": 4.7,
                 "isbn": "5672937283",
                 "pages": 354,
+                "front": None,
                 "publisher": {
                     "id": 1,
                     "name": "Books of World",
+                    "logo": None,
                     "url": "https://www.bow.com",
                     "description": 'Description publisher "Books of World"'},
                 "authors": [
@@ -91,9 +95,11 @@ class APITests(APITestCase):
                              'rating': 2.9,
                              'isbn': '5676549012',
                              'pages': 123,
+                             'front': None,
                              'publisher': {
                                  'id': 1,
                                  'name': 'Books of World',
+                                 'logo': None,
                                  'url': 'https://www.bow.com',
                                  'description': 'Description publisher "Books of World"'},
                              'authors': [
@@ -144,6 +150,7 @@ class APITests(APITestCase):
             {'id': 1,
              'name': 'Books of World',
              'url': 'https://www.bow.com',
+             'logo': None,
              'description': 'Description publisher "Books of World"'}])
 
     def test_get_one_publisher(self):
@@ -155,4 +162,5 @@ class APITests(APITestCase):
             'id': 1,
             'name': 'Books of World',
             'url': 'https://www.bow.com',
+            'logo': None,
             'description': 'Description publisher "Books of World"'})

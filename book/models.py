@@ -4,7 +4,24 @@ from autoslug import AutoSlugField
 
 
 def slug(instance):
+    """For migration 0007"""
     return '-'.join([instance.firstname, instance.lastname])
+
+
+def lower_and_replace(text):
+    return text.lower().replace('ł', 'l').replace(' ', '-')
+
+
+def author_slug(instance):
+    return '-'.join([lower_and_replace(instance.firstname), lower_and_replace(instance.lastname)])
+
+
+def book_slug(instance):
+    return lower_and_replace(instance.title)
+
+
+def publisher_slug(instance):
+    return lower_and_replace(instance.name)
 
 
 class Author(models.Model):
@@ -12,7 +29,7 @@ class Author(models.Model):
     lastname = models.CharField(max_length=50)
     biography = models.TextField(null=True, blank=True)
     photo = models.ImageField(upload_to='images/authors', default=None, blank=True, null=True)
-    slug = AutoSlugField(populate_from=slug, unique=True, null=True)
+    slug = AutoSlugField(populate_from=author_slug, unique=True, null=True)
 
     class Meta:
         ordering = ['firstname', 'lastname']
@@ -34,7 +51,7 @@ class Publisher(models.Model):
     url = models.URLField(max_length=50)
     description = models.TextField(null=True, blank=True)
     logo = models.ImageField(upload_to='images/books', default=None, blank=True, null=True)
-    slug = AutoSlugField(populate_from='name', unique=True, null=True)
+    slug = AutoSlugField(populate_from=publisher_slug, unique=True, null=True)
 
     class Meta:
         ordering = ['name']
@@ -56,7 +73,7 @@ class Book(models.Model):
     rating = models.FloatField(default=0.0)
     publisher = models.ForeignKey(Publisher, related_name='book', on_delete=models.CASCADE, null=True)
     front = models.ImageField(upload_to='images/books', default=None, blank=True, null=True)
-    slug = AutoSlugField(populate_from='title', unique=True, null=True)
+    slug = AutoSlugField(populate_from=book_slug, unique=True, null=True)
 
     class Meta:
         ordering = ['title']

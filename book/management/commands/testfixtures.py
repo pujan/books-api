@@ -25,7 +25,8 @@ class Command(BaseCommand):
             try:
                 author = Author.objects.get(firstname=firstname, lastname=lastname)
             except Author.DoesNotExist:
-                author = Author(firstname=firstname, lastname=lastname)
+                author = Author(firstname=firstname, lastname=lastname,
+                                biography=f'Biography {firstname} {lastname}')
                 author.save()
                 num_authors += 1
 

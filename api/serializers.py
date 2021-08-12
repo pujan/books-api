@@ -12,16 +12,24 @@ class AuthorSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['id', 'firstname', 'lastname', 'biography', 'uri', 'photo', 'number_books']
 
     def get_uri(self, obj):
-        return f'/authors/{obj.slug}/'
+        return f'/authors/{obj.id}/{obj.slug}/'
 
     def get_number_books(self, obj):
         return obj.number_books()
 
 
 class PublisherSerializer(serializers.HyperlinkedModelSerializer):
+    url = serializers.SerializerMethodField('get_url')
+
     class Meta:
         model = Publisher
         fields = ['id', 'name', 'url', 'description', 'logo']
+
+    def get_url(self, obj):
+        if obj.url.startswith('http'):
+            return obj.url
+
+        return f'https://{obj.url}'
 
 
 class BookSerializer(serializers.ModelSerializer):
@@ -34,4 +42,4 @@ class BookSerializer(serializers.ModelSerializer):
         fields = ['id', 'title', 'rating', 'isbn', 'pages', 'publisher', 'authors', 'uri', 'front']
 
     def get_uri(self, obj):
-        return f'/books/{obj.slug}/'
+        return f'/books/{obj.id}/{obj.slug}/'

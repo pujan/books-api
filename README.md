@@ -16,6 +16,12 @@ pip install -r requirements.txt
 mkvirtualenv -r requirements.txt books-api
 ```
 
+### Patching swagger template
+
+```bash
+patch $PATH_TO_VIRTUALENV_SITE_PACKAGES/rest_framework_swagger/templates/rest_framework_swagger/index.html swagger.patch
+```
+
 ### Migrate a database
 
 ```bash

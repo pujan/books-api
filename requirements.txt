@@ -3,3 +3,4 @@ django-autoslug==1.9.8
 django-rest-swagger==2.2.0
 djangorestframework==3.12.2
 django-cors-headers==3.7.0
+Pillow==9.3.0

@@ -45,7 +45,7 @@ pillow==10.3.0
     # via -r requirements.in
 pytz==2022.6
     # via django
-requests==2.31.0
+requests==2.32.2
     # via coreapi
 simplejson==3.18.0
     # via django-rest-swagger
